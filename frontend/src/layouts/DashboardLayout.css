@@ -1,0 +1,480 @@
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-main);
+    overflow: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.5rem;
+    flex-shrink: 0;
+    z-index: 20;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.02);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0.5rem 2rem 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-icon-wrapper {
+    background: linear-gradient(135deg, var(--primary), #8b5cf6);
+    padding: 12px;
+    border-radius: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+.logo-icon-wrapper.mini {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    letter-spacing: -0.04em;
+    font-weight: 900;
+    color: var(--text-main);
+    text-align: center;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    padding-right: 0.5rem;
+}
+
+/* Custom scrollbar for nav-menu to keep it clean */
+.nav-menu::-webkit-scrollbar {
+    width: 4px;
+}
+.nav-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+.nav-menu::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.nav-item:hover {
+    background: var(--bg-hover);
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+.nav-item.active {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 8px 25px rgba(28, 57, 187, 0.2);
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.theme-switcher-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-main);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.theme-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.logout-button {
+    padding: 0.85rem;
+    border-radius: 12px;
+    border: 2px solid #ef4444;
+    color: #ef4444;
+    background: transparent;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background: #ef4444;
+    color: white;
+}
+
+.logout-button.mini {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.sidebar-footer-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Main Content Area */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.topbar {
+    height: 72px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 15;
+}
+
+[data-theme='dark'] .topbar {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: var(--text-main);
+    border-radius: 2px;
+}
+
+.topbar-context {
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar-badge {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+}
+
+.topbar-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.topbar-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.topbar-user-email {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* Workflow Indicator Wrapper */
+.dashboard-content-area {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.workflow-indicator-container {
+    padding: 2rem 3rem;
+    background: var(--bg-card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.workflow-track {
+    position: absolute;
+    top: 3.5rem;
+    left: 4rem;
+    right: 4rem;
+    height: 2px;
+    background: var(--border-color);
+    z-index: 0;
+}
+
+.workflow-step-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.step-icon-box {
+    width: 48px;
+    height: 48px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: all 0.4s ease;
+}
+
+.workflow-step-node.active .step-icon-box {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px rgba(28, 57, 187, 0.3);
+}
+
+.workflow-step-node.completed .step-icon-box {
+    background: var(--success);
+    color: white;
+    border-color: transparent;
+}
+
+.step-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 100px;
+}
+
+.workflow-step-node.active .step-label {
+    color: var(--text-main);
+}
+
+.workflow-bridge {
+    flex: 1.5;
+    height: 2px;
+    background: var(--border-color);
+    margin: 0 -1.5rem;
+    align-self: flex-start;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 0;
+}
+
+.workflow-bridge.completed {
+    background: var(--success);
+}
+
+/* Main Content Padding */
+.main-content {
+    flex: 1;
+    padding: 0 2rem 2rem 2rem;
+}
+
+/* Mobile Sidebar Overlay */
+.mobile-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: flex;
+}
+
+.mobile-sidebar {
+    width: 280px;
+    background: var(--bg-card);
+    height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.mobile-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-menu-btn {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.mobile-sidebar-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .desktop-sidebar {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .topbar {
+        padding: 0 1.25rem;
+    }
+
+    .topbar-title {
+        font-size: 1.1rem;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .workflow-track {
+        display: none;
+    }
+
+    .workflow-indicator-container {
+        padding: 1.5rem 1rem;
+        gap: 0.5rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+        justify-content: flex-start;
+    }
+
+    .workflow-indicator-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .workflow-step-node {
+        flex: 0 0 auto;
+        width: 100px;
+    }
+
+    .workflow-bridge {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    .topbar-badge {
+        display: none;
+    }
+
+    .workflow-step-node {
+        width: 80px;
+    }
+
+    .step-icon-box {
+        width: 40px;
+        height: 40px;
+    }
+
+    .step-label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar-title {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

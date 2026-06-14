@@ -1,0 +1,26 @@
+import express from "express";
+import cors from "cors";
+import routes from "./routes/index.js";
+
+const app = express();
+
+app.use(cors());
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+
+app.get("/", (req, res) => {
+    res.send("Server is running");
+});
+
+app.use("/api", routes);
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+    console.error("Global Error:", err);
+    res.status(err.status || 500).json({
+        status: "error",
+        message: err.message || "Internal Server Error"
+    });
+});
+
+export { app };

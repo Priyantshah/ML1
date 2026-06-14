@@ -1,0 +1,281 @@
+/* TrainPage.css - Premium AI Lab Design */
+
+.train-page-container {
+    padding-top: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.train-header {
+    margin-bottom: 4rem;
+    text-align: left;
+}
+
+.train-header h1 {
+    font-size: 2.8rem;
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #1c39bb 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.train-header p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+}
+
+.train-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Control Hub Card */
+.control-hub-card {
+    padding: 5rem 3rem;
+    background: linear-gradient(165deg, rgba(255, 255, 255, 1) 0%, rgba(241, 245, 249, 1) 100%);
+    border-radius: 40px;
+    border: 1px solid rgba(28, 57, 187, 0.1);
+    box-shadow: 0 40px 100px -20px rgba(15, 23, 42, 0.12);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 480px;
+}
+
+[data-theme='dark'] .control-hub-card {
+    background: linear-gradient(165deg, #0f172a 0%, #020617 100%);
+    border-color: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+}
+
+/* Status Indicators */
+.ready-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    z-index: 5;
+}
+
+.ready-aura {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-light);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ready-aura:hover {
+    transform: scale(1.1);
+    background: rgba(28, 57, 187, 0.2);
+    box-shadow: 0 0 40px rgba(28, 57, 187, 0.3);
+}
+
+.ready-aura:hover .play-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(28, 57, 187, 0.4));
+}
+
+.ready-aura::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.15;
+    animation: aura-pulse 2.5s infinite ease-out;
+}
+
+.play-icon {
+    color: var(--primary);
+    filter: drop-shadow(0 4px 12px rgba(28, 57, 187, 0.2));
+}
+
+.target-pill {
+    padding: 0.75rem 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.target-pill strong {
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+/* Vibrant Action Button */
+.btn-train-vibrant {
+    padding: 1.4rem 4rem;
+    background: linear-gradient(135deg, #1c39bb, #4f46e5);
+    color: white;
+    font-weight: 850;
+    font-size: 1.25rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: 0 20px 60px -10px rgba(79, 70, 229, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-train-vibrant:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 30px 80px -15px rgba(79, 70, 229, 0.6);
+    filter: brightness(1.1);
+}
+
+.btn-train-vibrant:active {
+    transform: translateY(-2px);
+}
+
+/* Training Progress */
+.training-lab-view {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.lab-spinner-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-glow {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: var(--primary);
+    filter: blur(50px);
+    opacity: 0.15;
+}
+
+.progress-dashboard {
+    width: 100%;
+    text-align: center;
+}
+
+.progress-track {
+    height: 16px;
+    width: 100%;
+    background: var(--bg-secondary);
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1c39bb, #6366f1, #818cf8);
+    background-size: 200% 100%;
+    animation: flow-gradient 2s linear infinite;
+    transition: width 0.4s ease;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+.percentage-text {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: -0.05em;
+}
+
+.status-log {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Error Message */
+.train-error-alert {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    animation: slideUp 0.4s ease;
+}
+
+.error-info h3 {
+    color: #ef4444;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.error-info p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes aura-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes flow-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

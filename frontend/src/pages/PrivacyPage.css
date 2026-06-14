@@ -1,0 +1,172 @@
+.privacy-page-container {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+.privacy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(28, 57, 187, 0.1);
+    color: #1c39bb;
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.privacy-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.04em;
+}
+
+.privacy-header p.last-updated {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.privacy-article {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.card-premium {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: var(--shadow-md);
+}
+
+.institutional-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(28, 57, 187, 0.05);
+    border-left: 4px solid #1c39bb;
+    border-radius: 12px;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.inst-icon {
+    color: #1c39bb;
+    flex-shrink: 0;
+}
+
+.policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.policy-section {
+    padding: 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    transition: transform 0.3s ease;
+}
+
+.policy-section:hover {
+    transform: translateY(-5px);
+}
+
+.policy-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #1c39bb;
+}
+
+.policy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.policy-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.policy-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #1c39bb;
+    font-weight: 900;
+}
+
+.contact-box h3 {
+    font-size: 1.5rem;
+    font-weight: 850;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.contact-item a {
+    color: #1c39bb;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.developer-info {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.privacy-footer-note {
+    margin-top: 6rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.95rem;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .institutional-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

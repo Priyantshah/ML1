@@ -1,0 +1,875 @@
+/* EDAPage.css — 4-Section Dashboard Layout */
+
+/* ── Page Header ──────────────────────────────────────────────────── */
+.eda-page-header {
+    margin-bottom: 2.5rem;
+}
+
+.eda-page-header h1 {
+    font-size: 2.6rem;
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.6rem;
+    background: linear-gradient(135deg, #1c39bb 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.eda-page-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* ── Target Selector ──────────────────────────────────────────────── */
+.target-selection-hero {
+    padding: 2.5rem 3rem;
+    border-radius: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.target-hero-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.target-hero-content p {
+    color: var(--text-secondary);
+}
+
+.target-hero-action {
+    width: 360px;
+}
+
+.vibrant-select {
+    width: 100%;
+    padding: 1rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 14px;
+    border: 2px solid var(--border-color);
+    background: var(--bg-main);
+    color: var(--text-main);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    cursor: pointer;
+    transition: border-color .2s;
+}
+
+.vibrant-select:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+
+.btn-vibrant {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1c39bb, #2563eb);
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -5px rgba(37, 99, 235, .4);
+    transition: all .25s ease;
+}
+
+.btn-vibrant:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn-vibrant:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.eda-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, .4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── 4 Sections container ─────────────────────────────────────────── */
+.eda-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+/* ── Section wrapper ──────────────────────────────────────────────── */
+.eda-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ── Section Header ───────────────────────────────────────────────── */
+.eda-section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.eda-section-icon {
+    background: linear-gradient(135deg, #1c39bb, #2563eb);
+    color: #fff;
+    border-radius: 12px;
+    padding: 0.6rem;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.eda-section-header h2 {
+    font-size: 1.4rem;
+    font-weight: 750;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+.eda-section-header p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────── */
+.eda-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.75rem 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.eda-card-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ── Shape cards ──────────────────────────────────────────────────── */
+.shape-cards {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.shape-card {
+    flex: 1;
+    min-width: 110px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.shape-card span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2563eb;
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+}
+
+.shape-card label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* ── Two column layout ────────────────────────────────────────────── */
+.eda-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* ── Table ────────────────────────────────────────────────────────── */
+.eda-table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.eda-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.eda-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.eda-table th {
+    background: var(--bg-secondary);
+    padding: 0.65rem 0.9rem;
+    text-align: left;
+    font-weight: 700;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.eda-table td {
+    padding: 0.6rem 0.9rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.eda-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.eda-table tbody tr:hover td {
+    background: var(--bg-secondary);
+}
+
+/* ── OK / empty banner ────────────────────────────────────────────── */
+.eda-ok-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: rgba(16, 185, 129, .07);
+    border-radius: 12px;
+    color: #059669;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* ── Distribution tabs ────────────────────────────────────────────── */
+.dist-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.6rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.dist-tab {
+    padding: 0.5rem 1.1rem;
+    border-radius: 99px;
+    border: 1.5px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.dist-tab.active,
+.dist-tab:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #fff;
+}
+
+.dist-charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Skew badge inside chart title */
+.skew-badge {
+    margin-left: auto;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 99px;
+    background: rgba(37, 99, 235, .12);
+    color: #2563eb;
+}
+
+/* ── Boxplot summary ──────────────────────────────────────────────── */
+.boxplot-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.boxplot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.boxplot-row:last-of-type {
+    border-bottom: none;
+}
+
+.boxplot-label {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.boxplot-value {
+    color: var(--text-main);
+    font-weight: 700;
+    font-family: monospace;
+}
+
+/* ── Correlation header + legend ──────────────────────────────────── */
+.corr-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.corr-legend {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.corr-legend span {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+/* ── Correlation heatmap (reused) ─────────────────────────────────── */
+.matrix-scroll-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.correlation-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.correlation-table th,
+.correlation-table td {
+    padding: 0.85rem 1rem;
+    text-align: center;
+    min-width: 80px;
+    border: 1px solid var(--border-color);
+}
+
+.correlation-table th {
+    background: var(--bg-secondary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.matrix-cell {
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: transform .15s;
+}
+
+.matrix-cell:hover {
+    transform: scale(1.15);
+    z-index: 10;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+}
+
+/* ── Scatter grid ─────────────────────────────────────────────────── */
+.scatter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.scatter-box {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.scatter-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* ── Insights & Recommendations ───────────────────────────────────── */
+.insights-reco-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.insights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.insight-pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    border-left: 4px solid;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    transition: transform .2s;
+}
+
+.insight-pill:hover {
+    transform: translateX(6px);
+}
+
+/* Model recommendation banner */
+.model-reco-banner {
+    background: linear-gradient(135deg, rgba(16, 185, 129, .08), rgba(5, 150, 105, .12));
+    border: 1px solid rgba(16, 185, 129, .2);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.model-pill {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background: rgba(16, 185, 129, .15);
+    color: #059669;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    margin-bottom: 0.6rem;
+}
+
+.model-winner {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.reason-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.reco-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.reco-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.reco-action {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.reco-detail {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* ── Footer action ────────────────────────────────────────────────── */
+.eda-final-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-proceed {
+    padding: 1.1rem 2.5rem;
+    background: linear-gradient(135deg, #1c39bb, #4f46e5);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(79, 70, 229, .35);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+
+.btn-proceed:hover:not(:disabled) {
+    transform: scale(1.04) translateY(-4px);
+    box-shadow: 0 16px 40px rgba(79, 70, 229, .5);
+}
+
+.btn-proceed:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+/* ── Animations ───────────────────────────────────────────────────── */
+.animate-fade-in {
+    animation: fadeIn .4s ease both;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp .5s ease both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ── Graphical Boxplot ───────────────────────────────────────────── */
+.eda-boxplot-container {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+}
+
+.eda-boxplot-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border-color);
+    transform: translateY(-50%);
+}
+
+.eda-boxplot-whisker {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: var(--text-secondary);
+    transform: translateY(-50%);
+}
+
+.eda-boxplot-iqr {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    background: rgba(37, 99, 235, 0.15);
+    border: 1.5px solid #2563eb;
+    border-radius: 3px;
+}
+
+.eda-boxplot-median {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    background: #ef4444;
+    border-radius: 2px;
+}
+
+.eda-boxplot-outlier {
+    position: absolute;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ef4444;
+    transform: translate(-50%, -50%);
+    opacity: 0.7;
+}
+
+/* Categorical vs Target Relationships */
+.cat-relo-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cat-relo-row:last-child {
+    border-bottom: none;
+}
+
+.cat-relo-label {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cat-relo-viz {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+    .cat-relo-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 1rem 0;
+    }
+
+    .cat-relo-label {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+}
+
+/* ── Responsive Refinements ───────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .eda-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .eda-two-col,
+    .dist-charts-grid,
+    .insights-reco-grid,
+    .eda-section .eda-two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .shape-card span {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .eda-page-header h1 {
+        font-size: 2.1rem;
+        letter-spacing: -0.02em;
+    }
+
+    .eda-page-header p {
+        font-size: 1rem;
+    }
+
+    .target-selection-hero {
+        flex-direction: column;
+        padding: 1.75rem;
+        text-align: center;
+        gap: 1.75rem;
+        border-radius: 20px;
+    }
+
+    .target-hero-content h3 {
+        justify-content: center;
+        font-size: 1.25rem;
+    }
+
+    .target-hero-action {
+        width: 100%;
+    }
+
+    .shape-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .shape-card {
+        min-width: unset;
+        padding: 1rem 0.75rem;
+    }
+
+    .shape-card:last-child {
+        grid-column: span 2;
+    }
+
+    .shape-card span {
+        font-size: 1.5rem;
+    }
+
+    .eda-card {
+        padding: 1.25rem 1rem;
+        border-radius: 16px;
+    }
+
+    .eda-section-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .eda-section-icon {
+        padding: 0.5rem;
+    }
+
+    /* Small adjustments to tables on mobile */
+    .eda-table {
+        font-size: 0.82rem;
+    }
+
+    .eda-table th, .eda-table td {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .correlation-table th, .correlation-table td {
+        padding: 0.6rem 0.75rem;
+        min-width: 70px;
+    }
+
+    .matrix-cell {
+        font-size: 0.8rem;
+    }
+
+    .model-winner {
+        font-size: 1.35rem;
+    }
+
+    .eda-final-action {
+        justify-content: center;
+    }
+
+    .btn-proceed {
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .eda-page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .dist-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+
+    .dist-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .dist-tab {
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+    }
+
+    .shape-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .shape-card:last-child {
+        grid-column: span 1;
+    }
+
+    .scatter-box {
+        padding: 0.75rem;
+    }
+
+    .scatter-label {
+        font-size: 0.75rem;
+    }
+
+    .eda-section-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .model-reco-banner {
+        padding: 1rem;
+    }
+}

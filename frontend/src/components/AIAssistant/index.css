@@ -1,0 +1,43 @@
+.ai-assistant-launcher {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 40;
+}
+
+.ai-assistant-button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ai-assistant-tooltip {
+  position: absolute;
+  right: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease-out, transform 0.12s ease-out;
+}
+
+.ai-assistant-button:hover .ai-assistant-tooltip {
+  opacity: 1;
+  transform: translate(-4px, -50%);
+}
+
+@media (max-width: 768px) {
+  .ai-assistant-launcher {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
