@@ -1,17 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Read Supabase URL and anon key from Vite environment variables.
-// Define these in a `.env` file at the project root of `frontend`:
-// VITE_SUPABASE_URL=your_supabase_url
-// VITE_SUPABASE_ANON_KEY=your_public_anon_key
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Public Supabase credentials (anon key is safe to expose in client code).
+// Falls back to hardcoded values when VITE_ env vars are not injected at build time.
+const supabaseUrl =
+  import.meta.env.VITE_SUPABASE_URL ||
+  'https://eutwtlxpcobrxeyjkfqh.supabase.co';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn(
-    'Supabase URL or anon key is missing. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.',
-  );
-}
+const supabaseAnonKey =
+  import.meta.env.VITE_SUPABASE_ANON_KEY ||
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1dHd0bHhwY29icnhleWprZnFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2OTQwNzMsImV4cCI6MjA3OTI3MDA3M30.54kLsMuMHF6ncINKo9XQAeZuqRKT5qMW8v9XqeMzacA';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
