@@ -2,7 +2,9 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { useGoogleLogin } from '@react-oauth/google';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3002';
+// Strip trailing /api if present so we can safely append /api/... paths below
+const _rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3002';
+const API_BASE = _rawApiUrl.endsWith('/api') ? _rawApiUrl.slice(0, -4) : _rawApiUrl;
 
 const AuthContext = createContext(null);
 

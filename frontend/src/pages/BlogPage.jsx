@@ -6,7 +6,8 @@ import {
 } from 'lucide-react';
 import './BlogPage.css';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3002';
+const _rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3002';
+const API_BASE = _rawApiUrl.endsWith('/api') ? _rawApiUrl.slice(0, -4) : _rawApiUrl;
 const API = `${API_BASE}/api/blog`;
 
 const TAG_COLORS = {

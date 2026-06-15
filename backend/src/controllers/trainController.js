@@ -301,7 +301,10 @@ export const trainModelsStream = async (req, res) => {
             stderr += data.toString();
         });
 
+        let spawnErrorOccurred = false;
+
         py.on("error", (err) => {
+            spawnErrorOccurred = true;
             clearInterval(keepAliveId);
             if (edaJsonPath && fs.existsSync(edaJsonPath)) fs.unlinkSync(edaJsonPath);
             sendEvent({ type: "error", error: `Failed to start Python process: ${err.message}` });
@@ -309,6 +312,7 @@ export const trainModelsStream = async (req, res) => {
         });
 
         py.on("close", async (code, signal) => {
+            if (spawnErrorOccurred) return;
             clearInterval(keepAliveId);
             if (edaJsonPath && fs.existsSync(edaJsonPath)) fs.unlinkSync(edaJsonPath);
             if (tempFilePath && fs.existsSync(tempFilePath)) fs.unlinkSync(tempFilePath);
@@ -367,7 +371,7 @@ export const trainModelsStream = async (req, res) => {
                 if (!result) {
                     const outputTail = cleanOutput ? cleanOutput.slice(-600) : "";
                     const stderrTail = stderr ? stderr.trim().slice(-600) : "";
-                    const details = stderrTail || outputTail || "No output captured from Python process.";
+                    const details = stderrTail || outputTail || `No output captured from Python process. (Exit code: ${code}, Signal: ${signal})`;
                     throw new Error(`Failed to parse Python script output. Details: ${details}`);
                 }
 
