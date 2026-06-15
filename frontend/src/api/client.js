@@ -1,19 +1,19 @@
 import axios from 'axios';
 
 
-let baseURL = import.meta.env.VITE_API_URL || '/api';
+const getApiUrl = () => {
+    const buildUrl = import.meta.env.VITE_API_URL;
+    if (buildUrl && buildUrl !== '/api' && !buildUrl.startsWith('http://localhost:3002')) {
+        return buildUrl;
+    }
+    // Dynamic runtime routing based on environment
+    if (typeof window !== 'undefined' && (window.location.hostname.includes('pages.dev') || window.location.hostname.includes('automl-builder-frontend'))) {
+        return 'https://automl-backend-copy-copy-copy-production.up.railway.app/api';
+    }
+    return 'http://localhost:3002/api';
+};
 
-// Ensure baseURL ends with /api if it's an absolute URL
-if (baseURL !== '/api') {
-    // Remove trailing slash if present
-    if (baseURL.endsWith('/')) {
-        baseURL = baseURL.slice(0, -1);
-    }
-    // Append /api if not present
-    if (!baseURL.endsWith('/api')) {
-        baseURL += '/api';
-    }
-}
+const baseURL = getApiUrl();
 
 
 const client = axios.create({

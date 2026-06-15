@@ -2,9 +2,18 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { useGoogleLogin } from '@react-oauth/google';
 
-// Strip trailing /api if present so we can safely append /api/... paths below
-const _rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3002';
-const API_BASE = _rawApiUrl.endsWith('/api') ? _rawApiUrl.slice(0, -4) : _rawApiUrl;
+const getApiBaseUrl = () => {
+  const buildUrl = import.meta.env.VITE_API_URL;
+  if (buildUrl && buildUrl !== '/api' && !buildUrl.startsWith('http://localhost:3002')) {
+    return buildUrl.endsWith('/api') ? buildUrl.slice(0, -4) : buildUrl;
+  }
+  if (typeof window !== 'undefined' && (window.location.hostname.includes('pages.dev') || window.location.hostname.includes('automl-builder-frontend'))) {
+    return 'https://automl-backend-copy-copy-copy-production.up.railway.app';
+  }
+  return 'http://localhost:3002';
+};
+
+const API_BASE = getApiBaseUrl();
 
 const AuthContext = createContext(null);
 
